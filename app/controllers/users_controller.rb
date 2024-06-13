@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:show]
+  before_action :correct_user, only: [:show,:update,:destroy,:edit]
   skip_before_action :login_required, only: [:new, :create]
 
 
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       # ユーザ登録に成功した場合の処理
       log_in(@user)
-      redirect_to task_path(@user.id)
+      redirect_to tasks_path
     else
       # ユーザ登録に失敗した場合の処理
       render :new
@@ -21,6 +21,22 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to user_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to new_session_path
   end
 
 

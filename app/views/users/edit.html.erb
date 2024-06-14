@@ -1,3 +1,4 @@
+<% content_for :title, "アカウント編集ページ" %>
 <h1>アカウント編集画面</h1>
 <%= form_with(model: @user, local: true) do |f| %>
   <%= f.label :name %>
@@ -9,5 +10,5 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
   <%= f.submit "編集" %>
-  <%= link_to "戻る", user_path(@user) %>
+  <%= link_to "戻る", user_path(@user), id: "back"%>
 <% end %>

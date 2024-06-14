@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     else
       # ユーザ登録に失敗した場合の処理
       render :new
+      redirect_to new_user_path
     end
   end
 

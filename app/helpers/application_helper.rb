@@ -5,7 +5,7 @@ module ApplicationHelper
 
   def require_login
     unless logged_in?
-      flash[:alert] = "ログインが必要です"
+      flash[:alert] = "ログインしてください"
       redirect_to login_path
     end
   end

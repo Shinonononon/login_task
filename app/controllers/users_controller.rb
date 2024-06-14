@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       # ユーザ登録に成功した場合の処理
       log_in(@user)
       redirect_to tasks_path
+      flash[:notice] = 'アカウントを登録しました'
     else
       # ユーザ登録に失敗した場合の処理
       render :new
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to user_path
+      flash[:notice] = 'アカウントを更新しました'
     else
       render :edit
     end

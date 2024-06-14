@@ -17,6 +17,11 @@ ja:
     messages:
       blank: を入力してください
   helpers:
+    label:
+      session:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
     submit:
       create: 登録する
       update: 更新する

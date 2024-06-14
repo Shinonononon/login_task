@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
-  skip_before_action :login_required, only: [:new, :create, :edit, :show , :update, :destroy]
 
   def index
     @tasks = current_user.tasks
